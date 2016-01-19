@@ -18,11 +18,14 @@
   },
   "homepage": "https://github.com/violet-day/cls-explore#readme",
   "dependencies": {
+    "bluebird": "^3.1.1",
+    "cls-bluebird": "^1.0.1",
     "cls-q": "^1.1.0",
     "continuation-local-storage": "^3.1.4",
     "express": "^4.13.3",
     "lodash": "^4.0.0",
     "q": "^1.4.1",
+    "redis": "^2.4.2",
     "superagent": "^1.6.1",
     "uuid": "^2.0.1"
   },

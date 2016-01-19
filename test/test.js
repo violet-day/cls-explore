@@ -63,4 +63,35 @@ describe('cls', function () {
 
   });
 
+  describe('cls-bluebird', function () {
+
+    it('should lose without patch', function (done) {
+      this.timeout(5000);
+
+      Promise.all(_.times(100, function () {
+          return testFn(userList[_.random(0, userList.length - 1)], '/bluebird/without-patch/test');
+        }))
+        .then(function (result) {
+          result.should.containEql(false);
+          done();
+        })
+        .catch(done)
+
+    });
+
+    it('should not lose with patch', function (done) {
+      this.timeout(5000);
+
+      Promise.all(_.times(20, function () {
+          return testFn(userList[_.random(0, userList.length - 1)], '/bluebird/with-patch/test');
+        }))
+        .then(function (result) {
+          result.should.matchEach(true);
+          done();
+        })
+        .catch(done)
+    });
+
+  });
+
 });

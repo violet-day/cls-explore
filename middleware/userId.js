@@ -9,13 +9,11 @@ var cls = require('continuation-local-storage');
 module.exports = function (appName) {
   return function (req, res, next) {
     var ns = cls.getNamespace(appName);
-    q.delay(100)
-      .then(function () {
-        if (req.query.userId) {
-          ns.set('userId', req.query.userId)
-        }
-        next();
-      });
-
+    setTimeout(function () {
+      if (req.query.userId) {
+        ns.set('userId', req.query.userId)
+      }
+      next();
+    }, 100);
   };
 };

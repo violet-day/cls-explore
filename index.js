@@ -15,12 +15,29 @@ app.use('/q/without-patch', qWithoutPatch);
 //endregion
 
 
-//region q-witch-patch
-var qWitchPatch = createApp('q-witch-patch', ['cls-q']);
+//region q-with-patch
+var qwithPatch = createApp('q-with-patch', ['cls-q']);
 
-require('./router/q-test')(qWitchPatch);
+require('./router/q-test')(qwithPatch);
 
-app.use('/q/with-patch', qWitchPatch);
+app.use('/q/with-patch', qwithPatch);
+//endregion
+
+//region q-without-patch
+var bluebirdWithoutPatch = createApp('bluebird-without-patch');
+
+require('./router/bluebird-test')(bluebirdWithoutPatch);
+
+app.use('/bluebird/without-patch', bluebirdWithoutPatch);
+//endregion
+
+
+//region bluebird-with-patch
+var bluebirdWithPatch = createApp('bluebird-with-patch', ['cls-bluebird']);
+
+require('./router/bluebird-test')(bluebirdWithPatch);
+
+app.use('/bluebird/with-patch', bluebirdWithPatch);
 //endregion
 
 
